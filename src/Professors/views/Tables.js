@@ -14,7 +14,7 @@ function Tables() {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/api/students');
+      const response = await axios.get('http://joyous-ocean-production.up.railway.app/api/students');
       setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -23,7 +23,7 @@ function Tables() {
 
   const createStudent = async () => {
     try {
-      await axios.post('http://localhost:8082/api/students', newStudent);
+      await axios.post('http://joyous-ocean-production.up.railway.app/api/students', newStudent);
       setNewStudent({ userName: '', firstName: '', lastName: '', number: '' });
       fetchStudents();
     } catch (error) {
@@ -33,7 +33,7 @@ function Tables() {
 
   const updateStudent = async () => {
     try {
-      await axios.put(`http://localhost:8082/api/students/${editingStudent.id}`, editingStudent);
+      await axios.put(`http://joyous-ocean-production.up.railway.app/api/students/${editingStudent.id}`, editingStudent);
       setEditingStudent(null);
       fetchStudents();
     } catch (error) {
@@ -43,7 +43,7 @@ function Tables() {
 
   const deleteStudent = async (id) => {
     try {
-      await axios.delete(`http://localhost:8082/api/students/${id}`);
+      await axios.delete(`http://joyous-ocean-production.up.railway.app/api/students/${id}`);
       fetchStudents();
     } catch (error) {
       console.error('Error deleting student:', error);

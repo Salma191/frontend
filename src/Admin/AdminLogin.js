@@ -31,7 +31,7 @@ const AdminLogin = ({ onLogin }) => {
     const userId = localStorage.getItem('adminId');
 
     if (userId) {
-      const response = await axios.get(`http://localhost:8082/api/admins/${userId}`);
+      const response = await axios.get(`http://joyous-ocean-production.up.railway.app/api/admins/${userId}`);
       return response.data;
     }
 
@@ -46,7 +46,7 @@ const AdminLogin = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`http://localhost:8082/api/admins/login/${userName}`);
+      const response = await axios.get(`http://joyous-ocean-production.up.railway.app/api/admins/login/${userName}`);
 
       if (response.status === 200) {
         // Login successful

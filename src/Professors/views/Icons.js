@@ -11,7 +11,7 @@ const Icons = () => {
 
   const chargerGroupes = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8082/api/groupes');
+      const response = await axios.get('http://joyous-ocean-production.up.railway.app/api/groupes');
       setGroupes(response.data);
     } catch (error) {
       console.error('Error fetching groupes:', error);

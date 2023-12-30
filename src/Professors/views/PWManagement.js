@@ -22,7 +22,7 @@ function PWManagement() {
 
   const fetchPWs = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/api/pws');
+      const response = await axios.get('http://joyous-ocean-production.up.railway.app/api/pws');
       setPWs(response.data);
 
       // Update groupedPWs
@@ -45,7 +45,7 @@ function PWManagement() {
 
   const fetchGroups = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/api/groupes');
+      const response = await axios.get('http://joyous-ocean-production.up.railway.app/api/groupes');
       setGroups(response.data);
     } catch (error) {
       console.error('Error fetching groups:', error);
@@ -54,7 +54,7 @@ function PWManagement() {
 
   useEffect(() => {
     // Récupérer les données des dents depuis la base de données
-    axios.get('http://localhost:8082/api/teeth')
+    axios.get('http://joyous-ocean-production.up.railway.app/api/teeth')
         .then(response => {
           // Mettre à jour les options de la liste déroulante avec les données reçues
           setToothOptions(response.data); // Assurez-vous que response.data contient les données des dents
@@ -84,10 +84,10 @@ function PWManagement() {
 
       if (formData.id) {
         // Update PW
-        await axios.put(`http://localhost:8082/api/pws/${formData.id}`, pwData);
+        await axios.put(`http://joyous-ocean-production.up.railway.app/api/pws/${formData.id}`, pwData);
       } else {
         // Create new PW
-        const response = await axios.post('http://localhost:8082/api/pws', pwData);
+        const response = await axios.post('http://joyous-ocean-production.up.railway.app/api/pws', pwData);
 
         // Update groupedPWs
         const updatedGroupedPWs = { ...groupedPWs };
@@ -113,7 +113,7 @@ function PWManagement() {
 
   const deletePW = async (id) => {
     try {
-      await axios.delete('http://localhost:8082/api/pws/${id}');
+      await axios.delete('http://joyous-ocean-production.up.railway.app/api/pws/${id}');
       fetchPWs();
     } catch (error) {
       console.error('Error deleting PW:', error);
@@ -193,7 +193,7 @@ function PWManagement() {
       }
 
       // Effectuez l'appel HTTP pour ajouter le pw au groupe
-      await axios.post('http://localhost:8082/api/groupes/${selectedGroupId}/add-pw/${selectedPWId}');
+      await axios.post('http://joyous-ocean-production.up.railway.app/api/groupes/${selectedGroupId}/add-pw/${selectedPWId}');
 
       // Mettez à jour les données après l'ajout
       fetchPWs(); // Mettez à jour la liste des mots de passe
@@ -212,7 +212,7 @@ function PWManagement() {
       }
 
       // Effectuez l'appel HTTP pour supprimer le pw du groupe
-      await axios.delete('http://localhost:8082/api/groupes/${selectedGroupId}/remove-pw/${selectedPWId}');
+      await axios.delete('http://joyous-ocean-production.up.railway.app/api/groupes/${selectedGroupId}/remove-pw/${selectedPWId}');
 
       // Mettez à jour les données après la suppression
       fetchPWs(); // Mettez à jour la liste des mots de passe

@@ -43,7 +43,7 @@ const Dashboard = ({ onLogout }) => {
       try {
         const userId = localStorage.getItem('adminId');
         if (userId) {
-          const response = await fetch(`http://localhost:8082/api/admins/${userId}`);
+          const response = await fetch(`http://joyous-ocean-production.up.railway.app/api/admins/${userId}`);
           if (response.ok) {
             const userData = await response.json();
             if (userData) {

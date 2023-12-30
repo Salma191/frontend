@@ -18,7 +18,7 @@ const User = () => {
 
   const fetchProfessors = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/api/professors');
+      const response = await axios.get('http://joyous-ocean-production.up.railway.app/api/professors');
       setProfessors(response.data);
     } catch (error) {
       console.error('Error fetching professors:', error);
@@ -28,7 +28,7 @@ const User = () => {
 
   const handleCreateProfessor = async () => {
     try {
-      const response = await axios.post('http://localhost:8082/api/professors', newProfessor);
+      const response = await axios.post('http://joyous-ocean-production.up.railway.app/api/professors', newProfessor);
       setNewProfessor({
         firstName: '',
         lastName: '',
@@ -45,7 +45,7 @@ const User = () => {
 
   const handleDeleteProfessor = async (id) => {
     try {
-      await axios.delete(`http://localhost:8082/api/professors/${id}`);
+      await axios.delete(`http://joyous-ocean-production.up.railway.app/api/professors/${id}`);
       setProfessors(professors.filter((professor) => professor.id !== id));
       setError('');
     } catch (error) {

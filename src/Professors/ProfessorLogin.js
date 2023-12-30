@@ -36,7 +36,7 @@ const ProfessorLogin = ({ children }) => {
     const userId = localStorage.getItem('userId');
 
     if (userId) {
-      const response = await axios.get(`http://localhost:8082/api/professors/${userId}`);
+      const response = await axios.get(`http://joyous-ocean-production.up.railway.app/api/professors/${userId}`);
       return response.data;
     }
 
@@ -51,7 +51,7 @@ const ProfessorLogin = ({ children }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`http://localhost:8082/api/professors/login/${userName}`);
+      const response = await axios.get(`http://joyous-ocean-production.up.railway.app/api/professors/login/${userName}`);
 
       if (response.status === 200) {
         const adminData = response.data;

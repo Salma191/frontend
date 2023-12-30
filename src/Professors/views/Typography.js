@@ -14,7 +14,7 @@ function Typography() {
 
   const fetchTeeth = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/api/teeth');
+      const response = await axios.get('http://joyous-ocean-production.up.railway.app/api/teeth');
       setTeeth(response.data);
     } catch (error) {
       console.error('Error fetching teeth:', error);
@@ -25,10 +25,10 @@ function Typography() {
     try {
       if (toothFormData.id) {
         // Update tooth
-        await axios.put(`http://localhost:8082/api/teeth/${toothFormData.id}`, toothFormData);
+        await axios.put(`http://joyous-ocean-production.up.railway.app/api/teeth/${toothFormData.id}`, toothFormData);
       } else {
         // Create new tooth
-        await axios.post('http://localhost:8082/api/teeth', toothFormData);
+        await axios.post('http://joyous-ocean-production.up.railway.app/api/teeth', toothFormData);
       }
 
       // Clear the form data
@@ -43,7 +43,7 @@ function Typography() {
 
   const deleteTooth = async (id) => {
     try {
-      await axios.delete(`http://localhost:8082/api/teeth/${id}`);
+      await axios.delete(`http://joyous-ocean-production.up.railway.app/api/teeth/${id}`);
       fetchTeeth();
     } catch (error) {
       console.error('Error deleting tooth:', error);
